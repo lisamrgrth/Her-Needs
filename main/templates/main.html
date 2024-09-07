@@ -1,12 +1,111 @@
-<h1>herNeeds</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>herNeeds</title>
+    <style>
+        body {
+            background-color: #FFC2D1;
+            font-family: Arial, sans-serif;
+            color: #333;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #FF5E78;
+            cursor: pointer;
+            background-color: #fff; /* Background putih */
+            padding: 20px;
+            border-radius: 10px; /* Membuat sudut agak melengkung */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Menambahkan shadow */
+        }
+        h5 {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+        p {
+            font-size: 16px;
+            margin: 5px 0;
+            color: #333;
+        }
+        .product {
+            border: 2px solid #FF5E78;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #FFE5E9;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        .personal-info {
+            margin-top: 30px;
+            font-size: 12px;
+        }
 
-<!-- <h5>NPM: </h5> -->
-<!-- <p>{{ npm }}</p> Ubah sesuai dengan npm kamu -->
- 
-<h5>Name: </h5>
-<p>{{ name }}</p> <!-- Ubah sesuai dengan nama kamu -->
-<h5>Class: </h5>
-<p>{{ class }}</p> <!-- Ubah sesuai dengan kelas kamu -->
+        /* Awalnya sembunyikan konten */
+        .content {
+            display: none;
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+        /* Konten ditampilkan dengan transisi */
+        .show-content {
+            display: block;
+            opacity: 1;
+        }
 
-<h5>Price: </h5>
-<p>{{ price }}</p> <!-- Ubah sesuai dengan kelas kamu -->
+    </style>
+</head>
+<body>
+
+    <!-- Ini adalah tampilan awal dengan herNeeds di tengah -->
+    <h1 id="herNeedsTitle">herNeeds</h1>
+
+    <!-- Ini adalah konten yang muncul setelah diklik -->
+    <div id="mainContent" class="content">
+        <!-- Nama dan Kelas -->
+        <h5>Name: </h5>
+        <p>{{ name }}</p>
+
+        <h5>Kelas: </h5>
+        <p>{{ class }}</p>
+
+        <!-- Informasi Produk -->
+        <div class="product">
+            <h5>Product Name: </h5>
+            <p>{{ product_name }}</p>
+
+            <h5>Price: </h5>
+            <p>{{ price }}</p>
+
+            <h5>Description: </h5>
+            <p>{{ description }}</p>
+
+            <h5>Stock: </h5>
+            <p>{{ stock }}</p>
+
+            <h5>Category: </h5>
+            <p>{{ category }}</p>
+
+            <h5>Size: </h5>
+            <p>{{ size }}</p>
+        </div>
+    </div>
+
+    <script>
+        // Ketika judul diklik, tampilkan konten dengan transisi
+        document.getElementById('herNeedsTitle').onclick = function() {
+            document.getElementById('mainContent').classList.add('show-content');
+        };
+    </script>
+
+</body>
+</html>
