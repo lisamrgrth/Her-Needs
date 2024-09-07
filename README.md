@@ -1,6 +1,7 @@
 Nama    : Lisa Margaretha Esron Tobing
 NPM     : 2306245541
 Kelas   : PBP B
+Hobi    : Tidur
 
 Tautan PWS:
 
