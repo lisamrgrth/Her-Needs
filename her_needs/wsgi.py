@@ -1,5 +1,5 @@
 """
-WSGI config for mental_health_tracker project.
+WSGI config for her_needs project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mental_health_tracker.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'her_needs.settings')
 
 application = get_wsgi_application()
