@@ -1,25 +1,34 @@
-Nama    : Lisa Margaretha Esron Tobing
-NPM     : 2306245541
-Kelas   : PBP B
+# TUGAS 2: Implementasi Model-View-Template (MVT) pada Django
+### Lisa Margaretha Esron Tobing - PBP 
 
-Tautan PWS:
+*[Tautan PWS: ]*
 
-TUGAS 2
-1. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-- Pertama, saya menggunakan command django-admin startproject her_needs . untuk membuat proyek baru
-- Setelah berhasil dibuat, saya menjalankan command python manage.py startapp main untuk membuat aplikasi baru dengan nama main
-- Saya menambahkan aplikasi main ke dalam INSTALLED_APPS di file settings.py agar Django mengenali aplikasi tersebut.
-- Saya menghubungkan aplikasi main dengan proyek melalui file urls.py. Di her_needs/urls.py, saya menambahkan path ke main.urls sehingga aplikasi dapat diakses.
-- Lalu, di models.py, saya membuat model Product yang memiliki atribut name, price, dan description. Model ini memungkinkan kita menyimpan data produk di database.
-- Di views.py, saya membuat fungsi show_main yang mengirimkan data ke template HTML. Fungsi ini mengirimkan variabel seperti nama dan kelas pengguna ke template untuk ditampilkan.
-- Saya membuat file main.html untuk menampilkan nama aplikasi, nama pengguna, dan kelas pengguna. Template ini menerima variabel dari views.py dan menampilkannya di halaman web.
-- Setelah selesai, proyek di-deploy ke PWS agar dapat diakses oleh pengguna lain melalui internet.
+---
 
-2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+## 1. Implementasi Checklist
 
-3. Jelaskan fungsi git dalam pengembangan perangkat lunak!
+### Membuat Proyek Django Baru
+Pertama, saya membuat direktori baru bernama **her-needs** untuk e-commerce yang akan saya buat. Saya mengaktifkan **virtual environment** agar dependencies aplikasi terisolasi dari aplikasi lain di komputer. Setelah itu, saya menginstall beberapa dependencies dan menambahkannya ke berkas **requirements.txt**. Lalu, saya menjalankan perintah `django-admin startproject her_needs` untuk membuat proyek baru. Setelah itu, saya mengonfigurasi **ALLOWED_HOSTS** agar aplikasi bisa diakses oleh semua pengguna. 
 
-4. Menurut Anda, dari semua framework yang ada, mengapa framework Django dijadikan permulaan pembelajaran pengembangan perangkat lunak?
+Untuk memulai server, saya menjalankan perintah `python manage.py runserver` dan membuka http://localhost:8000 di browser untuk memastikan server berjalan dengan baik. Saya juga membuat repositori Git bernama **her-needs**, menginisiasi direktori lokal sebagai repositori Git, lalu melakukan **add, commit**, dan **push** ke GitHub.
 
-5. Mengapa model pada Django disebut sebagai ORM?
-Model pada Django disebut sebagai ORM (Object-Relational Mapping) karena memungkinkan developer untuk bekerja dengan database menggunakan objek Python. ORM mengubah data dari database (tabel, kolom) menjadi objek Python, sehingga pengembang tidak perlu menulis query SQL langsung untuk berinteraksi dengan database. Hal ini membuat pengembangan lebih efisien dan aman karena query SQL otomatis dihasilkan oleh Django.
+### Membuat Aplikasi "main" pada Proyek
+Saya menjalankan perintah `python manage.py startapp main` untuk membuat aplikasi **main**. Setelah itu, saya menambahkan aplikasi ini ke dalam `INSTALLED_APPS` di **settings.py**. Langkah selanjutnya, saya mulai mengimplementasikan struktur **MVT** di dalam aplikasi **main**.
+
+### Melakukan Routing pada Proyek
+Saya menambahkan routing di **urls.py** untuk menghubungkan ke aplikasi **main**. Pada berkas **urls.py**, saya mengimpor fungsi `include` dari `django.urls` untuk menyertakan rute URL dari aplikasi **main**. Saya juga menambahkan rute `path('', include('main.urls'))` di variabel `urlpatterns` agar halaman aplikasi bisa diakses.
+
+### Membuat Model "Product" pada Aplikasi
+Saya mengubah berkas **models.py** di aplikasi **main** untuk mendefinisikan model **Product**. Model **Product** memiliki atribut: **name**, **price**, **description**, **stock**, dan **size**, dengan tipe data: **CharField**, **IntegerField**, **TextField**, **IntegerField**, dan **CharField**. Setiap kali mengubah model, saya menjalankan perintah migrasi untuk menerapkan perubahan ke database.
+
+### Membuat Fungsi pada Views dan Template HTML
+Saya mengimpor fungsi `render` dari `django.shortcuts` untuk mengirimkan data ke template HTML. Pada **views.py**, saya membuat fungsi yang mengirimkan data **name** dan **class** ke template **main.html**. Template ini digunakan untuk menampilkan data tersebut di halaman web.
+
+### Routing pada urls.py di Aplikasi "main"
+Saya membuat berkas **urls.py** di aplikasi **main** untuk mengatur rute URL yang akan menampilkan fungsi **show_main** dari **views.py** ketika diakses.
+
+### Deployment ke PWS
+Saya membuat project di PWS dan menambahkan URL PWS ke **ALLOWED_HOSTS** di **settings.py**, contohnya:
+
+```python
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "lisa-margaretha-herneeds.pbp.cs.ui.ac.id"]
