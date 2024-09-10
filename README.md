@@ -81,6 +81,6 @@ Hal ini membuat pengembangan menjadi lebih efisien dan aman, karena query SQL di
 - [PBP Fasilkom UI Tutorial 0](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-0)
 - [PBP Fasilkom UI Tutorial 1](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-1)
 - [MTV Django Architecture PDF](https://scele.cs.ui.ac.id/pluginfile.php/237029/mod_resource/content/1/03%20-%20MTV%20Django%20Architecture.pdf)
-- [Apa Itu Git? - dCloud](https://dcloud.co.id/blog/apa-itu-git.html#:~:text=Git%20adalah%20alat%20software%20development,code)%20secara%20efisien%20dan%20kolaboratif.)
+- [Apa Itu Git? - dCloud] (https://dcloud.co.id/blog/apa-itu-git.html#:~:text=Git%20adalah%20alat%20software%20development,code)
 -  [Introduction to the Internet and Web Framework - PDF](https://scele.cs.ui.ac.id/pluginfile.php/236179/mod_resource/content/1/02%20-%20Introduction%20to%20the%20Internet%20and%20Web%20Framework.pdf)
-- [Django ORM - AlmaBetter](https://www.almabetter.com/bytes/tutorials/django/django-orm#:~:text=Django%20ORM%20(Object%2DRelational%20Mapping,of%20writing%20SQL%20queries%20directly.)
+- [Django ORM - AlmaBetter] (https://www.almabetter.com/bytes/tutorials/django/django-orm)
