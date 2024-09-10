@@ -41,7 +41,8 @@ Hal ini dilakukan agar proyek Django saya dapat diakses melalui URL deployment. 
 Saya membuat file **README.md** untuk menjawab beberapa pertanyaan terkait Tugas 2 dan menyertakan tautan menuju aplikasi PWS yang telah di-deploy.
 
 ## 2. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
-![Bagan_Tugas2]()
+
+![Bagan_Tugas2](https://github.com/user-attachments/assets/fe6084cb-db1e-4835-9669-0d540ae585c0)
 ### Penjelasan Bagan:
 a. Client mengirimkan **HTTP request** ke server Django.  
 b. **urls.py** memetakan URL yang di-request client ke view yang sesuai saat server menerima request (routing).  
