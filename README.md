@@ -2,6 +2,7 @@
 ### Lisa Margaretha Esron Tobing (2306245541) - PBP B
 
 *[Tautan PWS: http://lisa-margaretha-herneeds.pbp.cs.ui.ac.id ]*
+*[Tautan Vercel https://her-needs.vercel.app/]*
 
 ---
 
