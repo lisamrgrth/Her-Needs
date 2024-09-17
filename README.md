@@ -85,3 +85,22 @@ Hal ini membuat pengembangan menjadi lebih efisien dan aman, karena query SQL di
 - [Apa Itu Git? - dCloud] (https://dcloud.co.id/blog/apa-itu-git.html#:~:text=Git%20adalah%20alat%20software%20development,code)
 -  [Introduction to the Internet and Web Framework - PDF](https://scele.cs.ui.ac.id/pluginfile.php/236179/mod_resource/content/1/02%20-%20Introduction%20to%20the%20Internet%20and%20Web%20Framework.pdf)
 - [Django ORM - AlmaBetter] (https://www.almabetter.com/bytes/tutorials/django/django-orm)
+
+
+# TUGAS 3: Implementasi Form dan Data Delivery pada Django
+
+---
+
+## 1. Jelaskan mengapa kita memerlukan data delivery dalam pengimplementasian sebuah platform?
+
+## 2. Menurutmu, mana yang lebih baik antara XML dan JSON? Mengapa JSON lebih populer dibandingkan XML?
+
+## 3. Jelaskan fungsi dari method is_valid() pada form Django dan mengapa kita membutuhkan method tersebut?
+
+## 4. Mengapa kita membutuhkan csrf_token saat membuat form di Django? Apa yang dapat terjadi jika kita tidak menambahkan csrf_token pada form Django? Bagaimana hal tersebut dapat dimanfaatkan oleh penyerang?
+
+## 5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+### Membuat input form untuk menambahkan objek model pada app sebelumnya
+### Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
+### Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+### Screenshot hasil akses URL pada Postman
