@@ -103,4 +103,13 @@ Hal ini membuat pengembangan menjadi lebih efisien dan aman, karena query SQL di
 ### Membuat input form untuk menambahkan objek model pada app sebelumnya
 ### Tambahkan 4 fungsi views baru untuk melihat objek yang sudah ditambahkan dalam format XML, JSON, XML by ID, dan JSON by ID.
 ### Membuat routing URL untuk masing-masing views yang telah ditambahkan pada poin 2.
+
 ### Screenshot hasil akses URL pada Postman
+XML
+![Screenshot (2767)](https://github.com/user-attachments/assets/43c8e98f-9c10-46c7-9c19-5ff1d4e80530)
+JSON
+![Screenshot (2768)](https://github.com/user-attachments/assets/9e38597d-4b35-4d32-b4fa-23f333a7bc5b)
+XML by ID
+![Screenshot (2769)](https://github.com/user-attachments/assets/885b6117-b5d7-4c60-a241-6166448adcc0)
+JSON by ID
+![Screenshot (2770)](https://github.com/user-attachments/assets/1c59d330-0a31-4018-99b5-36d1073602ff)
