@@ -131,7 +131,7 @@ Sebelum saya membuat form, langkah pertama yang saya lakukan adalah membuat *ske
 Setelah itu, saya mengedit file **settings.py** yang berada di direktori **her_needs**, lalu menambahkan key **DIRS** dengan path `BASE_DIR / 'templates'`. Penambahan ini memungkinkan Django untuk mendeteksi **base.html**. Dengan ini berkas **base.html** dapat terdeteksi sebagai berkas template. Selanjutnya, pada subdirektori **templates** yang ada di dalam direktori **main**, saya menambahkan kode berikut:
 ```html
 {% extends 'base.html' %}
-<!-- Kode konten halaman -->
+<!-- Kode sebelumnya -->
 {% endblock content %}
 ```
 Dengan ini, kita bisa menggunakan **base.html** sebagai template utama.
