@@ -86,7 +86,7 @@ Hal ini membuat pengembangan menjadi lebih efisien dan aman, karena query SQL di
 -  [Introduction to the Internet and Web Framework - PDF](https://scele.cs.ui.ac.id/pluginfile.php/236179/mod_resource/content/1/02%20-%20Introduction%20to%20the%20Internet%20and%20Web%20Framework.pdf)
 - [Django ORM - AlmaBetter] (https://www.almabetter.com/bytes/tutorials/django/django-orm)
 
-
+---
 
 # TUGAS 3: Implementasi Form dan Data Delivery pada Django
 
