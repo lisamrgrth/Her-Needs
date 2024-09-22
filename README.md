@@ -213,3 +213,18 @@ Terakhir, saya menjalankan perintah **git add**, **git commit**, dan **git push*
 - [Django Form Validation](https://www.javatpoint.com/django-form-validation#:~:text=The%20is_valid()%20method%20is,data%20into%20a%20cleaned_data%20attribute.)
 - [CSRF Token in Django](https://www.geeksforgeeks.org/csrf-token-in-django/)
 - [Tutorial PBP Fasilkom UI](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-2)
+
+---
+
+# TUGAS 4: Implementasi Autentikasi, Session, dan Cookies pada Django
+
+## Apa perbedaan antara HttpResponseRedirect() dan redirect()
+
+## Jelaskan cara kerja penghubungan model Product dengan User!
+
+## Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+
+## Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+
