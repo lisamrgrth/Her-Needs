@@ -219,12 +219,33 @@ Terakhir, saya menjalankan perintah **git add**, **git commit**, dan **git push*
 # TUGAS 4: Implementasi Autentikasi, Session, dan Cookies pada Django
 
 ## Apa perbedaan antara HttpResponseRedirect() dan redirect()
+1. HttpResponseRedirect() adalah kelas bawaan Django yang digunakan untuk mengarahkan pengguna ke URL lain setelah suatu aksi dilakukan. HttpResponseRedirect() membutuhkan URL yang ditulis secara eksplisit sebagai parameter
+2. redirect() adalah fungsi shortcut yang lebih sederhana dari Django untuk melakukan pengalihan (redirect) yang bisa menerima beberapa jenis parameter, seperti URL, nama view, atau bahkan instance model. redirect() jauh lebih fleksibel dan sederhana dibandingkan HttpResponseRedirect().
+https://stackoverflow.com/questions/13304149/what-the-difference-between-using-django-redirect-and-httpresponseredirect#:~:text=There%20is%20a%20difference%20between,it%20can%20%22redirect%22%20to.
+
 
 ## Jelaskan cara kerja penghubungan model Product dengan User!
 
 ## Apa perbedaan antara authentication dan authorization, apakah yang dilakukan saat pengguna login? Jelaskan bagaimana Django mengimplementasikan kedua konsep tersebut.
+1. Authentication adalah proses verifikasi identitas pengguna. Misalnya, ketika login, dimana pengguna memasukkan username dan password. Authentication bertujuan untuk memastikan bahwa pengguna sudah terdaftar dan kredensial yang di-input valid.
+2. Authorization adalah proses memastikan pengguna mempunyai izin untuk mengakses sesuatu. Misalnya, setelah login, pengguna hanya bisa mengakses profil mereka, tetapi hanya Admin yang bisa mengakses halaman manajemen pengguna. Authorization bertujuan untuk memastikan apakah pengguna yang sudah diautentikasi memiliki hak akses untuk melakukan tindakan atau mengakses bagian tertentu. 
+
+Apa yang dilakukan saat pengguna login:
+- Pengguna memasukkan username dan password di halaman login.
+- Lalu, Django memproses input pengguna serta melakukan authentication. 
+- Jika valid, Django mencatat status login pengguna dengan menyimpan detail pengguna ke dalam session. Pengguna kemudian akan dianggap authenticated (terautentikasi) untuk semua permintaan berikutnya selama sesi tersebut.
+- Setelah berhasil diautentikasi, Django akan menerapkan authorization, yaitu untuk memastikan pengguna memiliki izin untuk mengakses suatu halaman atau melakukan tindakan tertentu.
+
+Cara Django mengimplementasikan authentication dan authorization:
+
+
+
 
 ## Bagaimana Django mengingat pengguna yang telah login? Jelaskan kegunaan lain dari cookies dan apakah semua cookies aman digunakan?
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
 
+### Mengimplementasikan fungsi registrasi, login, dan logout untuk memungkinkan pengguna untuk mengakses aplikasi sebelumnya dengan lancar.
+### Membuat dua akun pengguna dengan masing-masing tiga dummy data menggunakan model yang telah dibuat pada aplikasi sebelumnya untuk setiap akun di lokal.
+### Menghubungkan model Product dengan User.
+### Menampilkan detail informasi pengguna yang sedang logged in seperti username dan menerapkan cookies seperti last login pada halaman utama aplikasi.
