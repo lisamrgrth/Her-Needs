@@ -344,4 +344,31 @@ Dengan kode ini, data `last_login` dapat ditampilkan. Sekarang, jika pengguna me
 - [PBP Fasilkom UI: Tutorial 3](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-3)
 - [Django Documentation: Authorization](https://docs.djangoproject.com/en/5.1/topics/auth/default/#topic-authorization)
 - [SCELE CS UI: Form, Authentication, Session, and Cookie](https://scele.cs.ui.ac.id/pluginfile.php/238638/mod_resource/content/2/05%20-%20Form%2C%20Authentication%2C%20Session%2C%20and%20Cookie.pdf)
-- [Domainesia: Apakah Mengizinkan Cookies pada Website Itu Berbahaya](https://www.domainesia.com/berita/cookies/#Apakah_Mengizinkan_Cookies_pada_Website_itu_Berbahaya)
+- [Domainesia: Apakah Mengizinkan Cookies pada Website Itu Berbahaya](https://www.domainesia.com/berita/cookies/#Apakah_Mengizinkan_Cookies_pada_Website_itu_Berbahaya)             
+---
+
+# TUGAS 5: Desain Web menggunakan HTML, CSS dan Framework CSS
+
+##  Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
+
+
+## Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+
+
+## Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
+
+
+## Jelaskan konsep flex box dan grid layout beserta kegunaannya!
+
+
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+### Implementasikan fungsi untuk menghapus dan mengedit product.
+### Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma)
+#### Kustomisasi halaman login, register, dan tambah product semenarik mungkin.
+#### Kustomisasi halaman daftar product menjadi lebih menarik dan responsive. Kemudian, perhatikan kondisi berikut:
+#### Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar.
+#### Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!).
+#### Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!
+#### Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.

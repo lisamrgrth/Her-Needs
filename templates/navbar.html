@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>herNeeds Responsive Navbar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-pink': '#FF69B4',
+                        'brand-light-pink': '#FFC0CB',
+                    },
+                    fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .mobile-menu {
+            transition: transform 0.3s ease-in-out;
+            transform: translateY(-100%);
+        }
+        .mobile-menu.show {
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-100">
+    <nav class="bg-brand-pink shadow-lg fixed top-0 left-0 z-40 w-full">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="font-semibold text-white text-lg font-poppins">herNeeds</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-4">
+                    <a href="{% url 'main:show_main' %}"class="text-white hover:text-brand-light-pink transition duration-300 font-poppins">Home</a>
+                    <a href="{% url 'main:create_product_entry' %}" class="text-white hover:text-brand-light-pink transition duration-300 font-poppins">Products</a>
+                    <span class="text-white font-poppins">Welcome, {{ user.username }}</span>
+                    <a href="{% url 'main:logout' %}" class="bg-brand-light-pink hover:bg-pink-600 text-white font-bold py-2 px-4 rounded transition duration-300 font-poppins">Logout</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="mobile-menu-button">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-brand-pink w-full">
+            <a href="{% url 'main:show_main' %}" class="block text-white hover:bg-brand-light-pink hover:text-brand-pink py-2 px-4 transition duration-300 font-poppins">Home</a>
+            <a href="{% url 'main:create_product_entry' %}" class="block text-white hover:bg-brand-light-pink hover:text-brand-pink py-2 px-4 transition duration-300 font-poppins">Products</a>
+            <span class="block text-white py-2 px-4 font-poppins">Welcome, {{ user.username }}</span>
+            <a href="{% url 'main:logout' %}" class="block bg-brand-light-pink hover:bg-pink-600 text-white font-bold py-2 px-4 transition duration-300 font-poppins">Logout</a>
+        </div>
+    </nav>
+
+    <script>
+        const btn = document.querySelector("button.mobile-menu-button");
+        const menu = document.querySelector(".mobile-menu");
+
+        btn.addEventListener("click", () => {
+            menu.classList.toggle("hidden");
+            menu.classList.toggle("show");
+        });
+    </script>
+</body>
+</html>
