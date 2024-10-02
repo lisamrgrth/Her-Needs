@@ -417,7 +417,8 @@ Contoh Aplikasi yang belum menerapkan Responsive Design
 3. **Padding** adalah ruang kosong di dalam elemen yang memberi jarak antara konten elemen dan border. Fungsi padding adalah untuk memastikan konten tidak terlalu rapat dengan border, sehingga konten terlihat lebih nyaman dan mudah dibaca.
 
 ### Visualisasi Margin, Border, dan Padding
-![Margin, Border, and Padding](image_url_placeholder)
+![Margin, Border, and Padding](![image](https://github.com/user-attachments/assets/e3f600b8-86ef-47b8-8b1b-5bbd6f8fb649)
+
 
 Urutan dari luar ke dalam elemen adalah sebagai berikut:
 **Margin → Border → Padding → Content**
