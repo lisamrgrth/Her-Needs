@@ -345,30 +345,161 @@ Dengan kode ini, data `last_login` dapat ditampilkan. Sekarang, jika pengguna me
 - [Django Documentation: Authorization](https://docs.djangoproject.com/en/5.1/topics/auth/default/#topic-authorization)
 - [SCELE CS UI: Form, Authentication, Session, and Cookie](https://scele.cs.ui.ac.id/pluginfile.php/238638/mod_resource/content/2/05%20-%20Form%2C%20Authentication%2C%20Session%2C%20and%20Cookie.pdf)
 - [Domainesia: Apakah Mengizinkan Cookies pada Website Itu Berbahaya](https://www.domainesia.com/berita/cookies/#Apakah_Mengizinkan_Cookies_pada_Website_itu_Berbahaya)             
----
 
+
+---
 # TUGAS 5: Desain Web menggunakan HTML, CSS dan Framework CSS
 
 ##  Jika terdapat beberapa CSS selector untuk suatu elemen HTML, jelaskan urutan prioritas pengambilan CSS selector tersebut!
 
+Ketika ada beberapa CSS selector yang diterapkan pada elemen HTML yang sama, browser akan menentukan prioritas berdasarkan urutan **specificity** (spesifisitas selector). Berikut adalah urutan prioritas pengambilan CSS selector:
+
+1. Inline Styles
+- **Prioritas Tertinggi:** Gaya CSS yang diterapkan langsung pada elemen HTML menggunakan atribut `style=""` memiliki prioritas tertinggi dibandingkan selector lainnya.
+- **Contoh:**
+  ```html
+  <div style="color: red;">Contoh Teks</div>
+   ```
+2. ID Selector
+- **Prioritas Kedua:** Selector ID memiliki tingkat spesifisitas yang lebih tinggi dibandingkan class, attribute, dan element selectors.
+- **Contoh:**
+   ```html
+   #example {
+      color: blue;
+   }
+   ```
+3. Class, Attribute, dan Pseudo-Class Selector
+- **Prioritas Ketiga**  terdiri dari:
+   - **Class Selectors (`.example`)**: Digunakan untuk menargetkan elemen berdasarkan kelas yang diberikan pada atribut `class` dalam HTML. Class selectors biasanya digunakan untuk mendefinisikan gaya yang dapat diterapkan pada banyak elemen sekaligus.
+   - **Attribute Selectors (`[type="text"]`)**: Menargetkan elemen berdasarkan atribut tertentu yang ada dalam tag HTML. Contohnya, `[type="text"]` akan menargetkan semua elemen dengan `type="text"`.
+   - **Pseudo-Class Selectors (`:hover`, `:focus`)**: Digunakan untuk menargetkan elemen dalam keadaan tertentu, seperti saat pengguna mengarahkan kursor ke elemen (`:hover`) atau ketika elemen tersebut dalam fokus (`:focus`).
+
+- **Contoh:**
+   ```css
+   /* Class Selector */
+   .example {
+   color: green; /* Akan diterapkan pada elemen dengan class="example" */
+   }
+
+   /* Attribute Selector */
+   [type="text"] {
+   border: 1px solid; /* Akan diterapkan pada elemen input dengan type="text" */
+   }
+
+   /* Pseudo-Class Selector */
+   .button:hover {
+   background-color: yellow; /* Akan diterapkan saat elemen dengan class="button" di-hover */
+   }
+   ```
 
 ## Mengapa responsive design menjadi konsep yang penting dalam pengembangan aplikasi web? Berikan contoh aplikasi yang sudah dan belum menerapkan responsive design!
+
+Responsive design sangat penting dalam pengembangan aplikasi web karena beberapa alasan:
+1. Menjamin Pengalaman Pengguna (User Experience) yang Optimal
+Di era digital saat ini, pengguna mengakses aplikasi web melalui berbagai perangkat seperti ponsel, tablet, dan desktop dengan ukuran layar yang berbeda-beda. Responsive design memastikan tampilan dan konten situs web tetap rapi dan mudah dibaca di berbagai ukuran layar, sehingga meningkatkan kenyamanan dan kepuasan pengguna.
+2. Efisiensi dalam Pengembangan dan Pemeliharaan
+Dengan menerapkan responsive design, developer hanya perlu mengelola satu versi situs web yang dapat beradaptasi untuk semua perangkat. Hal ini menghemat waktu dan biaya pemeliharaan, dibandingkan jika harus membuat dan mengelola versi terpisah untuk desktop dan mobile.
+
+Contoh Aplikasi yang sudah menerapkan Responsive Design
+- **Twitter**: Twitter secara otomatis menyesuaikan tampilannya ketika diakses melalui ponsel atau desktop, memastikan pengalaman pengguna yang nyaman di berbagai perangkat.
+- **Instagram**: Mirip dengan Twitter, Instagram juga memiliki desain responsif yang memungkinkan pengguna untuk menikmati pengalaman yang optimal, baik saat mengakses dari ponsel maupun desktop.
+
+Contoh Aplikasi yang belum menerapkan Responsive Design
+- **SIAKNG**: SIAKNG memiliki tampilan yang baik ketika diakses dari desktop, namun sayangnya tampilannya tidak responsif ketika dibuka melalui ponsel. Akibatnya, pengguna mungkin merasa tidak nyaman karena ukuran font yang terlalu kecil dan tampilan yang tidak menyesuaikan layar perangkat.
 
 
 ## Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
 
+1. **Margin** adalah ruang kosong di luar elemen yang digunakan untuk memberikan jarak antara elemen tersebut dengan elemen lainnya. Fungsinya adalah untuk memisahkan elemen satu dengan elemen lainnya, sehingga menciptakan spasi yang rapi dan terstruktur pada halaman web.
+
+2. **Border** merupakan garis yang mengelilingi elemen, terletak di antara margin dan padding. Border berfungsi sebagai batas atau penanda elemen dan dapat disesuaikan dalam hal warna, ketebalan, serta jenis garisnya. Border membantu menegaskan batas elemen, sehingga lebih jelas terlihat di antara elemen-elemen lainnya.
+
+3. **Padding** adalah ruang kosong di dalam elemen yang memberi jarak antara konten elemen dan border. Fungsi padding adalah untuk memastikan konten tidak terlalu rapat dengan border, sehingga konten terlihat lebih nyaman dan mudah dibaca.
+
+### Visualisasi Margin, Border, dan Padding
+![Margin, Border, and Padding](image_url_placeholder)
+
+Urutan dari luar ke dalam elemen adalah sebagai berikut:
+**Margin → Border → Padding → Content**
+
 
 ## Jelaskan konsep flex box dan grid layout beserta kegunaannya!
 
+1. Flexbox (Flexible Box Layout) adalah metode layout CSS yang didesain untuk menyusun elemen dalam satu dimensi, baik secara horizontal (row) atau vertikal (column). Flexbox memungkinkan elemen untuk secara fleksibel menyesuaikan ukurannya, mengatur spasi antar elemen, dan mendistribusikan elemen dalam container.
+Flexbox berguna untuk:
+- Membuat layout responsif dengan cepat, seperti menu navigasi, kartu produk, galeri gambar, dll.
+- Menyusun elemen dengan fleksibel dalam satu dimensi (baik horizontal maupun vertikal).
 
+2. Grid Layout adalah metode layout CSS dua dimensi yang memungkinkan untuk membuat layout lebih kompleks dengan mengatur elemen dalam baris (rows) dan kolom (columns). Grid layout memberikan kendali penuh terhadap ukuran dan posisi setiap elemen dalam sebuah container.
+Grid layout berguna untuk:
+- Membuat layout web yang kompleks dan responsif, seperti struktur halaman yang memiliki header, footer, sidebar, dan konten utama.
+Menyusun elemen secara presisi baik secara horizontal maupun vertikal dalam dua dimensi.
+
+1. **Flexbox (Flexible Box Layout)** adalah metode layout CSS yang dirancang untuk menyusun elemen dalam satu dimensi, baik secara horizontal (row) maupun vertikal (column). Flexbox memungkinkan elemen untuk menyesuaikan ukurannya secara fleksibel, mengatur spasi antar elemen, dan mendistribusikan elemen di dalam sebuah container dengan lebih mudah.
+Kegunaan Flexbox:
+- **Membuat Layout Responsif dengan Cepat:** Flexbox sangat efisien dalam membuat elemen responsif seperti menu navigasi, kartu produk, atau galeri gambar, karena dapat menyesuaikan diri dengan ukuran layar perangkat.
+- **Menyesuaikan Susunan Elemen:** Flexbox ideal untuk menyusun elemen secara fleksibel dalam satu dimensi, baik secara horizontal maupun vertikal, sehingga memberikan kontrol yang lebih baik terhadap tata letak elemen.
+
+> **Contoh Penggunaan Flexbox:** Untuk membuat baris produk di halaman e-commerce yang secara otomatis menyesuaikan jumlah kolom sesuai ukuran layar.
+
+2. **Grid Layout** adalah metode layout CSS yang bekerja dalam dua dimensi, memungkinkan untuk membuat tata letak yang lebih kompleks dengan mengatur elemen dalam baris (rows) dan kolom (columns). Grid layout memberikan kendali penuh terhadap ukuran, posisi, dan struktur setiap elemen di dalam sebuah container.
+Kegunaan Grid Layout:
+- **Membuat Layout Web yang Kompleks:** Grid Layout sangat cocok untuk membangun struktur halaman web yang kompleks dan responsif, seperti tata letak yang memiliki header, footer, sidebar, dan konten utama.
+- **Menyesuaikan Elemen Secara Presisi:** Grid Layout memungkinkan penyusunan elemen secara presisi, baik secara horizontal maupun vertikal dalam dua dimensi, sehingga memberikan kontrol lebih besar terhadap tata letak.
+
+> **Contoh Penggunaan Grid Layout:** Untuk membuat kerangka halaman lengkap dengan header, sidebar, dan konten utama yang terstruktur dengan rapi.
+
+### Perbandingan Flexbox dan Grid Layout
+
+| **Flexbox**                           | **Grid Layout**                               |
+|---------------------------------------|----------------------------------------------|
+| Tata letak satu dimensi (horizontal atau vertikal) | Tata letak dua dimensi (baris dan kolom)     |
+| Cocok untuk mengatur elemen dalam satu baris atau kolom | Cocok untuk tata letak halaman yang lebih kompleks |
+| Fleksibel untuk menyesuaikan konten yang beragam | Memberikan kontrol penuh terhadap struktur halaman |
 
 ## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
 
 ### Implementasikan fungsi untuk menghapus dan mengedit product.
+Pertama-tama, pada file `views.py`, saya membuat sebuah fungsi baru yang bernama `edit_product`. Selanjutnya, saya menambahkan import yang diperlukan pada file tersebut, yaitu:
+```python
+from django.shortcuts import .., reverse
+from django.http import .., HttpResponseRedirect
+```
+
+Selanjutnya, pada subdirektori `main/templates`, saya membuat berkas HTML baru bernama `edit_product.html`. Kemudian, di file `urls.py` yang berada di folder `main`, saya mengimpor fungsi `edit_product`. Terakhir, saya menambahkan path berikut ke dalam variabel `urlpatterns` untuk mengakses fungsi yang sudah diimpor tadi:
+```python
+path('edit-mood/<uuid:id>', edit_mood, name='edit_mood'),
+```
+Kurang lebih sama untuk fitur hapus produk. Pertama, saya membuat fungsi baru bernama `delete_product`. Kemudian, di `urls.py`, saya mengimpor fungsi yang telah dibuat tadi:
+
+```python
+from main.views import delete_product
+```
+
+Lalu, saya menambahkan path URL berikut:
+```python
+path('delete/<uuid:id>', delete_product, name='delete_product'),
+```
+ke dalam variabel 'urlpatterns' untuk mengakses fungsi yang sudah diimpor sebelumnya.
+
 ### Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma)
+
 #### Kustomisasi halaman login, register, dan tambah product semenarik mungkin.
-#### Kustomisasi halaman daftar product menjadi lebih menarik dan responsive. Kemudian, perhatikan kondisi berikut:
-#### Jika pada aplikasi belum ada product yang tersimpan, halaman daftar product akan menampilkan gambar dan pesan bahwa belum ada product yang terdaftar.
-#### Jika sudah ada product yang tersimpan, halaman daftar product akan menampilkan detail setiap product dengan menggunakan card (tidak boleh sama persis dengan desain pada Tutorial!).
+Saya menyesuaikan tampilan dengan menggunakan Tailwind.
+1. Pada halaman login, saya menambahkan animasi gradasi warna menggunakan @keyframes gradientAnimation yang menciptakan efek perubahan warna secara halus dari pink ke putih. Saya juga menggunakan class flex items-center justify-center untuk menempatkan form login di tengah layar.` Tombol login diberi warna bg-pink-600 dan efek hover hover:bg-pink-700 untuk memberikan interaksi visual. Selain itu, saya menambahkan ikon pada input username dan password
+2. Pada halaman register, saya menambahkan efek animasi gradasi pada latar belakang menggunakan `bg-animated`, membuat transisi warna dari pink ke putih. Selain itu, saya mengatur elemen form agar berada di tengah menggunakan class `flex items-center justify-center`. Bagian form juga diberikan efek bayangan (`shadow-2xl`) dan transisi (`hover:shadow-xl`) untuk memberikan efek interaktif ketika pengguna mengarahkan kursor. 
+3. Pada halaman Create Product Entry, saya menggunakan bg-pink-50 sebagai latar belakang dan menempatkan form di tengah dengan flex items-center justify-center. Tombol submit diberikan efek interaktif hover:bg-pink-600, sementara elemen form diberi shadow-md dan rounded-lg. Pesan error dan bantuan juga ditampilkan dengan warna berbeda agar mudah dipahami pengguna.
+
+#### Kustomisasi halaman daftar product menjadi lebih menarik dan responsive.
+
+Jika belum ada produk yang tersimpan, saya menampilkan gambar hanger bersama dengan pesan "Oops, belum ada data produk yang terdaftar," menggunakan elemen `if not product_entries`. Gambar ini ditempatkan di tengah halaman dengan bantuan class `flex` dan `justify-center` agar lebih menarik perhatian pengguna.
+
+Jika sudah ada produk yang tersimpan, saya menampilkan setiap produk dalam bentuk kartu (card) menggunakan `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3` agar tata letak produk dapat beradaptasi dengan berbagai ukuran layar. Saya juga menambahkan animasi `bounceIn` pada elemen Welcome Card agar terlihat lebih hidup dan interaktif, memberikan efek yang menarik saat pengguna pertama kali membuka halaman ini.
+
 #### Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!
+Pada setiap card product, saya menambahkan dua tombol: satu untuk mengedit (`edit_product`) dan satu untuk menghapus (`delete_product`). Tombol edit diberi warna kuning (`bg-yellow-500`) dan tombol hapus berwarna merah (`bg-red-500`). Keduanya saya berikan efek transisi hover. Saya menggunakan ikon SVG untuk merepresentasikan visual pada masing-masing tombol untuk memudahkan pengguna memahami fungsinya.
+
 #### Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
+Pada tampilan desktop, elemen-elemen navbar seperti "Home," "Add New Product," "Welcome, Username," dan "Logout" ditampilkan dalam satu baris menggunakan class hidden md:flex untuk menyembunyikan elemen ini di layar mobile.
+
+Untuk layar mobile, saya menambahkan sebuah tombol menu (mobile-menu-button) yang menampilkan navbar dengan class mobile-menu hidden md:hidden yang hanya muncul ketika tombol ditekan, memanfaatkan JavaScript untuk mengontrol visibilitasnya. Navbar ini memiliki transisi animasi (transform translateY) agar tampilan menu terasa lebih halus dan interaktif ketika pengguna mengaksesnya di perangkat mobile.
