@@ -405,7 +405,7 @@ Contoh Aplikasi yang sudah menerapkan Responsive Design
 - **Instagram**: Mirip dengan Twitter, Instagram juga memiliki desain responsif yang memungkinkan pengguna untuk menikmati pengalaman yang optimal, baik saat mengakses dari ponsel maupun desktop.
 
 Contoh Aplikasi yang belum menerapkan Responsive Design
-- **SIAKNG**: SIAKNG memiliki tampilan yang baik ketika diakses dari desktop, namun sayangnya tampilannya tidak responsif ketika dibuka melalui ponsel. Akibatnya, pengguna mungkin merasa tidak nyaman karena ukuran font yang terlalu kecil dan tampilan yang tidak menyesuaikan layar perangkat.
+- **SIAKNG**: SIAKNG memiliki tampilan yang baik ketika diakses dari desktop, tetapi sayangnya tampilannya tidak responsif ketika dibuka melalui ponsel. Akibatnya, saya sebagai pengguna, terkadang merasa tidak nyaman karena ukuran font yang terlalu kecil dan tampilan yang tidak menyesuaikan layar perangkat mobile.
 
 
 ## Jelaskan perbedaan antara margin, border, dan padding, serta cara untuk mengimplementasikan ketiga hal tersebut!
@@ -424,16 +424,6 @@ Urutan dari luar ke dalam elemen adalah sebagai berikut:
 
 
 ## Jelaskan konsep flex box dan grid layout beserta kegunaannya!
-
-1. Flexbox (Flexible Box Layout) adalah metode layout CSS yang didesain untuk menyusun elemen dalam satu dimensi, baik secara horizontal (row) atau vertikal (column). Flexbox memungkinkan elemen untuk secara fleksibel menyesuaikan ukurannya, mengatur spasi antar elemen, dan mendistribusikan elemen dalam container.
-Flexbox berguna untuk:
-- Membuat layout responsif dengan cepat, seperti menu navigasi, kartu produk, galeri gambar, dll.
-- Menyusun elemen dengan fleksibel dalam satu dimensi (baik horizontal maupun vertikal).
-
-2. Grid Layout adalah metode layout CSS dua dimensi yang memungkinkan untuk membuat layout lebih kompleks dengan mengatur elemen dalam baris (rows) dan kolom (columns). Grid layout memberikan kendali penuh terhadap ukuran dan posisi setiap elemen dalam sebuah container.
-Grid layout berguna untuk:
-- Membuat layout web yang kompleks dan responsif, seperti struktur halaman yang memiliki header, footer, sidebar, dan konten utama.
-Menyusun elemen secara presisi baik secara horizontal maupun vertikal dalam dua dimensi.
 
 1. **Flexbox (Flexible Box Layout)** adalah metode layout CSS yang dirancang untuk menyusun elemen dalam satu dimensi, baik secara horizontal (row) maupun vertikal (column). Flexbox memungkinkan elemen untuk menyesuaikan ukurannya secara fleksibel, mengatur spasi antar elemen, dan mendistribusikan elemen di dalam sebuah container dengan lebih mudah.
 Kegunaan Flexbox:
@@ -476,30 +466,35 @@ Kurang lebih sama untuk fitur hapus produk. Pertama, saya membuat fungsi baru be
 from main.views import delete_product
 ```
 
-Lalu, saya menambahkan path URL berikut:
+Lalu, saya menambahkan path URL berikut ke dalam variabel 'urlpatterns' untuk mengakses fungsi yang sudah diimpor sebelumnya:
 ```python
 path('delete/<uuid:id>', delete_product, name='delete_product'),
 ```
-ke dalam variabel 'urlpatterns' untuk mengakses fungsi yang sudah diimpor sebelumnya.
 
 ### Kustomisasi desain pada template HTML yang telah dibuat pada tugas-tugas sebelumnya menggunakan CSS atau CSS framework (seperti Bootstrap, Tailwind, Bulma)
 
 #### Kustomisasi halaman login, register, dan tambah product semenarik mungkin.
 Saya menyesuaikan tampilan dengan menggunakan Tailwind.
-1. Pada halaman login, saya menambahkan animasi gradasi warna menggunakan @keyframes gradientAnimation yang menciptakan efek perubahan warna secara halus dari pink ke putih. Saya juga menggunakan class flex items-center justify-center untuk menempatkan form login di tengah layar.` Tombol login diberi warna bg-pink-600 dan efek hover hover:bg-pink-700 untuk memberikan interaksi visual. Selain itu, saya menambahkan ikon pada input username dan password
-2. Pada halaman register, saya menambahkan efek animasi gradasi pada latar belakang menggunakan `bg-animated`, membuat transisi warna dari pink ke putih. Selain itu, saya mengatur elemen form agar berada di tengah menggunakan class `flex items-center justify-center`. Bagian form juga diberikan efek bayangan (`shadow-2xl`) dan transisi (`hover:shadow-xl`) untuk memberikan efek interaktif ketika pengguna mengarahkan kursor. 
-3. Pada halaman Create Product Entry, saya menggunakan bg-pink-50 sebagai latar belakang dan menempatkan form di tengah dengan flex items-center justify-center. Tombol submit diberikan efek interaktif hover:bg-pink-600, sementara elemen form diberi shadow-md dan rounded-lg. Pesan error dan bantuan juga ditampilkan dengan warna berbeda agar mudah dipahami pengguna.
+1. Pada halaman **login**, saya menambahkan animasi gradasi warna menggunakan @keyframes gradientAnimation yang menciptakan efek perubahan warna secara halus dari pink ke putih. Saya juga menggunakan class flex items-center justify-center untuk menempatkan form login di tengah layar.` Tombol login diberi warna bg-pink-600 dan efek hover hover:bg-pink-700 untuk memberikan interaksi visual. Selain itu, saya menambahkan ikon pada input username dan password.
+2. Pada halaman **register**, saya menambahkan efek animasi gradasi pada latar belakang menggunakan `bg-animated`, membuat transisi warna dari pink ke putih. Selain itu, saya mengatur elemen form agar berada di tengah menggunakan class `flex items-center justify-center`. Bagian form juga diberikan efek bayangan (`shadow-2xl`) dan transisi (`hover:shadow-xl`) untuk memberikan efek interaktif ketika pengguna mengarahkan kursor. 
+3. Pada halaman **Create Product Entry**, saya menggunakan `bg-gradient` sebagai latar belakang yang menciptakan gradasi warna dari pink ke putih dan menempatkan form di tengah menggunakan class `flex items-center justify-center`. Tombol submit diberikan efek interaktif dengan `hover:bg-pink-600`, sementara elemen form diberi efek `shadow-md` dan `rounded-lg` untuk tampilan yang lebih menarik.
+
 
 #### Kustomisasi halaman daftar product menjadi lebih menarik dan responsive.
 
-Jika belum ada produk yang tersimpan, saya menampilkan gambar hanger bersama dengan pesan "Oops, belum ada data produk yang terdaftar," menggunakan elemen `if not product_entries`. Gambar ini ditempatkan di tengah halaman dengan bantuan class `flex` dan `justify-center` agar lebih menarik perhatian pengguna.
+Jika belum ada produk yang tersimpan, saya menampilkan gambar hanger bersama dengan pesan "Oops, belum ada data produk yang terdaftar." menggunakan elemen `if not product_entries`. Gambar ini ditempatkan di tengah halaman dengan bantuan class `flex` dan `justify-center` agar lebih menarik perhatian pengguna.
 
-Jika sudah ada produk yang tersimpan, saya menampilkan setiap produk dalam bentuk kartu (card) menggunakan `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3` agar tata letak produk dapat beradaptasi dengan berbagai ukuran layar. Saya juga menambahkan animasi `bounceIn` pada elemen Welcome Card agar terlihat lebih hidup dan interaktif, memberikan efek yang menarik saat pengguna pertama kali membuka halaman ini.
+Jika sudah ada produk yang tersimpan, saya menampilkan setiap produk dalam bentuk kartu (card) menggunakan `grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3` agar tata letak produk dapat beradaptasi dengan berbagai ukuran layar. Saya juga menambahkan animasi `bounceIn` pada elemen Welcome Card agar terlihat lebih hidup dan interaktif, memberikan efek yang menarik saat pengguna pertama kali membuka halaman.
 
 #### Untuk setiap card product, buatlah dua buah button untuk mengedit dan menghapus product pada card tersebut!
 Pada setiap card product, saya menambahkan dua tombol: satu untuk mengedit (`edit_product`) dan satu untuk menghapus (`delete_product`). Tombol edit diberi warna kuning (`bg-yellow-500`) dan tombol hapus berwarna merah (`bg-red-500`). Keduanya saya berikan efek transisi hover. Saya menggunakan ikon SVG untuk merepresentasikan visual pada masing-masing tombol untuk memudahkan pengguna memahami fungsinya.
 
 #### Buatlah navigation bar (navbar) untuk fitur-fitur pada aplikasi yang responsive terhadap perbedaan ukuran device, khususnya mobile dan desktop.
-Pada tampilan desktop, elemen-elemen navbar seperti "Home," "Add New Product," "Welcome, Username," dan "Logout" ditampilkan dalam satu baris menggunakan class hidden md:flex untuk menyembunyikan elemen ini di layar mobile.
 
-Untuk layar mobile, saya menambahkan sebuah tombol menu (mobile-menu-button) yang menampilkan navbar dengan class mobile-menu hidden md:hidden yang hanya muncul ketika tombol ditekan, memanfaatkan JavaScript untuk mengontrol visibilitasnya. Navbar ini memiliki transisi animasi (transform translateY) agar tampilan menu terasa lebih halus dan interaktif ketika pengguna mengaksesnya di perangkat mobile.
+Pada tampilan desktop, elemen-elemen navbar seperti **"Home," "Add New Product," "Welcome, Username,"** dan **"Logout"** ditampilkan dalam satu baris. Untuk memastikan elemen-elemen ini hanya muncul pada tampilan desktop, saya menggunakan class `hidden md:flex`. Class `hidden` akan menyembunyikan elemen-elemen tersebut pada tampilan mobile, dan `md:flex` akan menampilkan elemen-elemen tersebut hanya ketika layar memiliki ukuran menengah (medium) atau lebih besar.
+Untuk tampilan mobile, saya menambahkan sebuah tombol menu (`mobile-menu-button`) yang menampilkan navbar dengan class `mobile-menu hidden md:hidden`. Elemen ini hanya akan muncul ketika tombol ditekan, dengan menggunakan JavaScript untuk mengontrol visibilitasnya. Selain itu, navbar ini memiliki efek transisi animasi (`transform translateY`) yang membuat tampilan menu terasa lebih halus dan interaktif ketika diakses pada perangkat mobile.
+
+
+## Referensi
+- [Web Design Using HTML5 and CSS3](https://scele.cs.ui.ac.id/pluginfile.php/239159/mod_resource/content/1/06%20-%20Web%20Design%20Using%20HTML5%20and%20CSS3.pdf)
+- [Tutorial 4 PBP Fasilkom UI](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-4)

@@ -29,7 +29,7 @@
 {% block content %}
 {% include 'navbar.html' %}
 
-<div class="min-h-screen flex items-center justify-center w-screen bg-pink-50 py-12 px-4 sm:px-6 lg:px-8 font-poppins mt-8">
+<div class="min-h-screen flex items-center justify-center w-screen bg-gradient-to-b from-brand-light-pink to-white py-12 px-4 sm:px-6 lg:px-8 font-poppins mt-8">
   <div class="max-w-md w-full space-y-8">
     <div>
       <h2 class="mt-6 text-center text-4xl font-extrabold text-brand-pink">
@@ -46,7 +46,27 @@
         {% for field in form %}
           <div class="mt-4">
             <label for="{{ field.id_for_label }}" class="text-sm font-medium text-gray-700">{{ field.label }}</label>
-            {{ field }}
+          
+    <!-- Custom styling for each input field -->
+            {% if field.name == 'name' %}
+              <input type="text" class="appearance-none rounded-md block w-full px-3 py-2 border border-pink-300 text-gray-900 focus:outline-none focus:ring-blue-500 focus:border-brand-pink sm:text-sm" id="{{ field.id_for_label }}" name="{{ field.html_name }}" value="{{ field.value|default_if_none:'' }}">
+              
+            {% elif field.name == 'price' %}
+              <input type="number" class="appearance-none rounded-md block w-full px-3 py-2 border border-pink-300 text-gray-900 focus:outline-none focus:ring-green-500 focus:border-brand-pink sm:text-sm" id="{{ field.id_for_label }}" name="{{ field.html_name }}" value="{{ field.value|default_if_none:'' }}">
+              
+            {% elif field.name == 'description' %}
+              <textarea class="appearance-none rounded-md block w-full px-3 py-2 border border-pink-300 text-gray-900 focus:outline-none focus:ring-yellow-500 focus:border-brand-pink sm:text-sm" id="{{ field.id_for_label }}" name="{{ field.html_name }}">{{ field.value|default_if_none:'' }}</textarea>
+              
+            {% elif field.name == 'stock' %}
+              <input type="number" class="appearance-none rounded-md block w-full px-3 py-2 border border-pink-300 text-gray-900 focus:outline-none focus:ring-purple-500 focus:border-brand-pink sm:text-sm" id="{{ field.id_for_label }}" name="{{ field.html_name }}" value="{{ field.value|default_if_none:'' }}">
+              
+            {% elif field.name == 'size' %}
+              <input type="text" class="appearance-none rounded-md block w-full px-3 py-2 border border-pink-300 text-gray-900 focus:outline-none focus:ring-red-500 focus:border-brand-pink sm:text-sm" id="{{ field.id_for_label }}" name="{{ field.html_name }}" value="{{ field.value|default_if_none:'' }}">
+              
+            {% else %}
+              <input class="appearance-none rounded-md block w-full px-3 py-2 border border-pink-300 text-gray-900 focus:outline-none focus:ring-brand-pink focus:border-brand-pink sm:text-sm" id="{{ field.id_for_label }}" name="{{ field.html_name }}" value="{{ field.value|default_if_none:'' }}">
+            {% endif %}
+            
             {% if field.help_text %}
               <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
             {% endif %}
