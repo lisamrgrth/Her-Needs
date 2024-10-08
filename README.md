@@ -581,4 +581,3 @@ Terakhir, saya menambahkan `strip_tags` untuk membersihkan data baru di backend.
 
 - [Tutorial 5 PBP Fasilkom UI](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-5)
 - [Web Interactivity PDF](https://scele.cs.ui.ac.id/pluginfile.php/239466/mod_resource/content/1/07%20-%20Web%20Interactivity-NC-300924-v1.pdf)
-
