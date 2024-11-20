@@ -1,3 +1,6 @@
+from django.views.decorators.csrf import csrf_exempt
+import json
+from django.http import JsonResponse
 import datetime
 from django.http import HttpResponseRedirect
 from django.urls import reverse
@@ -44,7 +47,7 @@ def show_xml(request):
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 
 def show_json(request):
-    data = Product.objects.all()
+    data = Product.objects.filter(user=request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 def show_xml_by_id(request, id):
@@ -111,5 +114,27 @@ def delete_product(request, id):
     product.delete()
     # Kembali ke halaman awal
     return HttpResponseRedirect(reverse('main:show_main'))
+
+@csrf_exempt
+def create_product_flutter(request):
+    if request.method == 'POST':
+
+        data = json.loads(request.body)
+        new_product = Product.objects.create(
+             user=request.user,
+            name=data["name"],
+            price=int(data["price"]),
+            description=data["description"],
+            stock=int(data["stock"]),
+            size=data["size"]
+        )
+
+        new_product.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
+
 
 # Create your views here.
