@@ -1,3 +1,4 @@
+from main.views import add_product_entry_ajax
 from main.views import create_product_flutter, delete_product
 from main.views import edit_product
 from main.views import logout_user
@@ -20,5 +21,6 @@ urlpatterns = [
     path('logout/', logout_user, name='logout'),
     path('edit-product/<uuid:id>', edit_product, name='edit_product'),
     path('delete/<uuid:id>', delete_product, name='delete_product'),
+    path('create-ajax', add_product_entry_ajax, name='add_product_entry_ajax'),
     path('create-flutter/', create_product_flutter, name='create_product_flutter'),
 ]

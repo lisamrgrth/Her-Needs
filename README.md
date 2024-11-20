@@ -499,3 +499,85 @@ Untuk tampilan mobile, saya menambahkan sebuah tombol menu (`mobile-menu-button`
 ## Referensi
 - [Web Design Using HTML5 and CSS3](https://scele.cs.ui.ac.id/pluginfile.php/239159/mod_resource/content/1/06%20-%20Web%20Design%20Using%20HTML5%20and%20CSS3.pdf)
 - [Tutorial 4 PBP Fasilkom UI](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-4)
+
+
+---
+
+# TUGAS 6: JavaScript dan AJAX
+
+## Jelaskan manfaat dari penggunaan JavaScript dalam pengembangan aplikasi web!
+
+1. **Interaktivitas Dinamis**: Dengan JavaScript, developer bisa menciptakan konten dinamis yang bisa beradaptasi dengan input pengguna secara real-time, tanpa perlu memuat ulang halaman. 
+**Contoh**: Validasi input form secara langsung di client-side (memeriksa apakah email valid tanpa perlu mengirim data ke server).
+
+2. **Pengurangan Beban Server dan Waktu Respons**: Dengan JavaScript, developer dapat membuat perubahan kecil pada halaman tanpa harus send request ke server. 
+**AJAX** (Asynchronous JavaScript and XML) memungkinkan pertukaran data dengan server di balik layar, sehingga halaman tidak perlu dimuat ulang seluruhnya. Hal ini meningkatkan efisiensi dan mengurangi waktu respons, membuat aplikasi terasa lebih cepat dan responsif.
+
+3. **Kontrol Lebih Besar Terhadap Elemen Halaman**: Melalui **Document Object Model** (DOM), JavaScript bisa digunakan untuk mengakses dan memodifikasi elemen HTML serta CSS di halaman web. Developer mendapat kontrol penuh untuk mengubah gaya, menghapus elemen, atau bahkan menambahkan elemen baru tanpa mengubah keseluruhan halaman.
+
+4. **Event-Driven Programming**: JavaScript bekerja secara event-driven, yang berarti bisa merespon tindakan user seperti klik, tekan tombol, atau load halaman. Hal ini memungkinkan aplikasi web menjadi lebih responsif dan interaktif. User bisa secara langsung melihat perubahan berdasarkan tindakan mereka, seperti animasi atau pesan pop-up
+
+## Jelaskan fungsi dari penggunaan await ketika kita menggunakan fetch()! Apa yang akan terjadi jika kita tidak menggunakan await?
+
+Fungsi dari `await` adalah untuk menunggu hasil dari fungsi `async`. Pada penggunaan `fetch()`, `await` berfungsi untuk menunggu proses asinkron (asynchronous) selesai sebelum melanjutkan eksekusi kode berikutnya. `fetch()` adalah fungsi yang berguna untuk mengambil data dari sebuah server secara asynchronous, dan dengan `await`, kita bisa memastikan bahwa JavaScript menunggu hingga data yang diminta sudah diterima sebelum melanjutkan ke baris kode selanjutnya.
+
+Ketika `await` digunakan bersamaan dengan `fetch()`, JavaScript menunggu hasil dari `fetch()` sebelum melanjutkan ke baris kode selanjutnya. Hal ini penting untuk menghindari akses ke data yang belum tersedia serta memastikan eksekusi sekuensial.
+
+Jika kita tidak menggunakan `await`, maka `fetch()` akan me-return `Promise` yang mungkin saja belum selesai, sehingga baris kode selanjutnya akan dieksekusi sebelum data benar-benar diterima. Akibatnya, data yang diharapkan mungkin belum tersedia pada saat kita ingin mengaksesnya, yang bisa menyebabkan kesalahan akses data dan kode yang tidak teratur, serta mengakibatkan hasil yang tidak diinginkan atau error.
+
+## Mengapa kita perlu menggunakan decorator csrf_exempt pada view yang akan digunakan untuk AJAX POST?
+
+Kita perlu menggunakan decorator `csrf_exempt` pada view yang akan digunakan untuk AJAX POST karena secara default, Django mengaktifkan perlindungan terhadap serangan CSRF (Cross-Site Request Forgery) pada semua permintaan POST. Hal ini berarti Django akan memeriksa keberadaan CSRF token pada setiap permintaan POST untuk memastikan bahwa permintaan tersebut sah dan tidak berasal dari sumber yang tidak terpercaya.
+
+Namun, dalam beberapa kasus seperti pada implementasi AJAX POST, pengiriman CSRF token secara manual bisa jadi sulit atau tidak praktis. Oleh karena itu, dengan menambahkan decorator `csrf_exempt`, kita memberitahu Django untuk tidak memeriksa CSRF token pada view tersebut, memungkinkan AJAX POST berfungsi tanpa masalah keamanan terkait CSRF.
+
+## Pada tutorial PBP minggu ini, pembersihan data input pengguna dilakukan di belakang (backend) juga. Mengapa hal tersebut tidak dilakukan di frontend saja?
+
+Pembersihan data input pengguna tidak dilakukan hanya di frontend karena keamanan data tidak bisa dijamin sepenuhnya jika hanya mengandalkan frontend. Pembersihan juga harus dilakukan di backend karena beberapa alasan berikut:
+
+- **Keamanan Data di Server:** Pembersihan di backend membantu memastikan bahwa data yang tersimpan di basis data sudah bersih dari elemen berbahaya, seperti tag HTML atau skrip yang bisa menimbulkan serangan XSS (Cross-Site Scripting).
+  
+- **Frontend Bisa Dilewati:** Pengguna dengan niat jahat bisa mematikan JavaScript atau mengubah kode di browser mereka, sehingga pembersihan yang dilakukan di frontend bisa dilewati. Mereka bisa mengirimkan data berbahaya langsung ke server tanpa melewati mekanisme pembersihan di frontend.
+  
+- **API dan Endpoint Lain:** Aplikasi modern biasanya tidak hanya menerima input melalui antarmuka pengguna (UI), tetapi juga melalui API atau format lain seperti JSON atau XML. Jika pembersihan hanya dilakukan di frontend, input yang dikirim melalui API tetap bisa mengandung elemen berbahaya.
+  
+- **Perlindungan Tambahan:** Backend adalah lapisan keamanan terakhir sebelum data disimpan atau diproses lebih lanjut. Dengan membersihkan input di backend, kita menambah lapisan perlindungan untuk menjaga integritas dan keamanan data.
+
+Oleh karena itu, meskipun pembersihan di frontend dapat membantu mengurangi risiko, backend tetap harus melakukan pembersihan data input untuk memastikan bahwa seluruh proses aman dari serangan atau manipulasi data.
+
+
+## Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial)!
+
+### AJAX GET
+
+Pertama-tama, saya mengubah baris pertama dari fungsi `show_json` dan `show_xml` di berkas `views.py` menjadi:
+
+```python
+data = ProductEntry.objects.filter(user=request.user)
+```
+Langkah ini memastikan bahwa data yang diambil hanya milik pengguna yang sedang login.
+Lalu, di berkas `main.html`, saya menambahkan:
+
+```html
+<div id="product_entry_cards"></div>
+```
+Dan terakhir, pada block `<script>`, saya menambahkan fungsi `getProductEntries()` untuk mengambil data produk secara asinkronus dengan AJAX GET
+Saya juga membuat sebuah fungsi baru bernama `refreshMoodEntries()` yang berguna untuk me-refresh data moods secara asinkronus. Fungsi ini akan memperbarui tampilan mood entries di halaman tanpa melakukan reload.
+
+### AJAX POST
+
+Pertama-tama, saya mengimpor `csrf_exempt` dan `require_POST` di berkas `views.py` untuk mengizinkan POST request tanpa verifikasi CSRF. Selanjutnya, saya membuat fungsi baru bernama `add_product_entry_ajax` di berkas yang sama untuk menerima POST request dan menyimpan data product baru. 
+Tidak lupa, saya mengimpor fungsi tersebut serta menambahkan path untuk fungsi tersebut di `urls.py`, tepatnya di variabel `urlpatterns` agar dapat diakses.
+
+Saya juga mengubah beberapa bagian kode di `main.html`. Agar modal dapat berfungsi, saya menambahkan beberapa fungsi JavaScript seperti `showModal()` dan `hideModal()`.
+Lalu, pada tombol **Add New Product Entry**, saya menambahkan tombol baru untuk melakukan penambahan data dengan AJAX. Agar modal tersebut bisa digunakan, saya membuat fungsi baru untuk menambahkan data berdasarkan input ke basis data secara AJAX.
+
+Di dalam block `<script>`, saya membuat fungsi baru bernama `addProductEntry()` yang berfungsi untuk menambahkan data baru ke basis data menggunakan AJAX POST.
+Untuk memastikan form mengirim data secara AJAX saat disubmit, saya juga menambahkan event listener pada form di modal.
+
+Terakhir, saya menambahkan `strip_tags` untuk membersihkan data baru di backend. Selain itu, saya juga menggunakan library JavaScript `DOMPurify` untuk melakukan pembersihan di frontend.
+
+## Referensi:
+
+- [Tutorial 5 PBP Fasilkom UI](https://pbp-fasilkom-ui.github.io/ganjil-2025/docs/tutorial-5)
+- [Web Interactivity PDF](https://scele.cs.ui.ac.id/pluginfile.php/239466/mod_resource/content/1/07%20-%20Web%20Interactivity-NC-300924-v1.pdf)

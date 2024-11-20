@@ -11,6 +11,7 @@
                 colors: {
                     'brand-pink': '#FF69B4',
                     'brand-light-pink': '#FFC0CB',
+                    'red': '#DC2626'
                 },
                 fontFamily: {
                     'poppins': ['Poppins', 'sans-serif'],
@@ -68,7 +69,7 @@
             {% endif %}
             
             {% if field.help_text %}
-              <p class="mt-1 text-sm text-gray-500">{{ field.help_text }}</p>
+              <p class="mt-1 text-sm text-red-500">{{ field.help_text }}</p>
             {% endif %}
             {% if field.errors %}
               <p class="mt-1 text-sm text-red-600">{{ field.errors }}</p>
